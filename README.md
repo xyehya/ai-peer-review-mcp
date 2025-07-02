@@ -81,7 +81,7 @@ echo "GEMINI_API_KEY=your_actual_api_key_here" > .env
 
 **server.js:** *(See full code in the repository)*
 
-### 4. Configure LMStudio
+### 4. Configure LMStudio or any other supported MCP Host (e.g Claude Desktop)
 
 Add this configuration to your LMStudio MCP settings:
 
