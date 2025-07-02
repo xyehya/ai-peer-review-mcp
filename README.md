@@ -287,8 +287,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/ai-peer-review-mcp/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/ai-peer-review-mcp/discussions)  
+- **Issues**: [GitHub Issues](https://github.com/xyehya/ai-peer-review-mcp/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/xyehya/ai-peer-review-mcp/discussions)  
 
 
 ## 🌟 Star History
