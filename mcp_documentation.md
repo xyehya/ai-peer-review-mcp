@@ -249,7 +249,7 @@ We welcome contributions! Here's how to help:
 ### Development Setup
 
 ```bash
-git clone https://github.com/yourusername/ai-peer-review-mcp
+git clone https://github.com/xyehya/ai-peer-review-mcp
 cd ai-peer-review-mcp
 npm install
 cp .env.example .env  # Add your API key
@@ -289,7 +289,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **Issues**: [GitHub Issues](https://github.com/yourusername/ai-peer-review-mcp/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/yourusername/ai-peer-review-mcp/discussions)  
-- **Email**: your.email@example.com
+
 
 ## 🌟 Star History
 
