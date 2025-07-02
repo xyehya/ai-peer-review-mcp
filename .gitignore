@@ -1,0 +1,19 @@
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+mcp-server.log
+
+# Dependencies
+node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
