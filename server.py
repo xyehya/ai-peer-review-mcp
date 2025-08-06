@@ -61,7 +61,9 @@ def main():
             log("Received request", request)
 
             response = None
-            if request.get("method") == "list_tools":
+            if request.get("method") == "initialize":
+                response = handle_initialize(request)
+            elif request.get("method") == "list_tools":
                 response = handle_list_tools(request)
             elif request.get("method") == "call_tool":
                 response = handle_call_tool(request)
@@ -100,6 +102,24 @@ def write_response(response):
         log("Sending response", response)
         print(response_str, file=sys.stdout)
         sys.stdout.flush()
+
+def handle_initialize(request):
+    """Handles the initialize request."""
+    log("Handling initialize request")
+    response = {
+        "jsonrpc": "2.0",
+        "id": request.get("id"),
+        "result": {
+            "serverInfo": {
+                "name": "ai-peer-review-py",
+                "version": "1.0.0",
+            },
+            "capabilities": {
+                "tools": {}
+            }
+        }
+    }
+    return response
 
 def handle_list_tools(request):
     """Handles the list_tools request."""
