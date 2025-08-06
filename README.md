@@ -24,7 +24,7 @@ A Model Context Protocol (MCP) server that enables local language models to requ
 
 ## 📋 Prerequisites
 
-- **Node.js 18+** installed on your system
+- **Python 3.8+** installed on your system
 - **LMStudio** (or another MCP-compatible LLM client)
 - **Google AI Studio account** (free) for Gemini API access
 - **Local LLM with tool calling support** (e.g., Llama 3.1, Mistral, Qwen)
@@ -42,44 +42,31 @@ A Model Context Protocol (MCP) server that enables local language models to requ
 
 ```bash
 # Clone or create project directory
-mkdir ai-peer-review-mcp
+git clone https://github.com/your-repo/ai-peer-review-mcp # Replace with the actual repo URL
 cd ai-peer-review-mcp
 
-# Initialize npm project
-npm init -y
+# Create a virtual environment (recommended)
+python3 -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
 # Install dependencies
-npm install @modelcontextprotocol/sdk
+pip install -r requirements.txt
 
 # Create environment file
-echo "GEMINI_API_KEY=your_actual_api_key_here" > .env
+cp .env.example .env
+# Now, edit the .env file and add your API key:
+# GEMINI_API_KEY=your_actual_api_key_here
 ```
 
-### 3. Create Server Files
+### 3. Review Server Files
 
-**package.json:**
-```json
-{
-  "name": "ai-peer-review-mcp",
-  "version": "1.0.0",
-  "description": "MCP server for AI peer review using Google Gemini",
-  "type": "module",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
-  },
-  "keywords": ["mcp", "ai", "peer-review", "gemini"],
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  }
-}
+**requirements.txt:**
+```txt
+requests
+python-dotenv
 ```
 
-**server.js:** *(See full code in the repository)*
+**server.py:** *(See full code in the repository)*
 
 ### 4. Configure LMStudio or any other supported MCP Host (e.g Claude Desktop)
 
@@ -89,8 +76,8 @@ Add this configuration to your LMStudio MCP settings:
 {
   "mcpServers": {
     "ai-peer-review": {
-      "command": "node",
-      "args": ["server.js"],
+      "command": "python",
+      "args": ["server.py"],
       "cwd": "/path/to/your/ai-peer-review-mcp",
       "env": {
         "GEMINI_API_KEY": "your_actual_api_key_here"
@@ -155,16 +142,17 @@ LLM: [Improved story with better narrative flow and character development]
 
 ### Customization
 
-You can modify the peer review prompt in `server.js` to focus on specific aspects:
+You can modify the peer review prompt in `server.py` to focus on specific aspects:
 
-```javascript
-const reviewPrompt = `PEER REVIEW REQUEST:
-// Customize this section for your specific needs
-// Examples:
-// - Focus on technical accuracy for coding questions
-// - Emphasize creativity for writing tasks  
-// - Prioritize safety for medical/legal topics
-`;
+```python
+review_prompt = f"""PEER REVIEW REQUEST:
+# Customize this section for your specific needs
+# Examples:
+# - Focus on technical accuracy for coding questions
+# - Emphasize creativity for writing tasks
+# - Prioritize safety for medical/legal topics
+...
+"""
 ```
 
 ## 📊 Monitoring and Logs
@@ -212,11 +200,11 @@ cat mcp-server.log | tail -50
 
 ### Debug Mode
 
-Run the server manually to see detailed output:
+Run the server manually to see detailed output. Make sure your virtual environment is active.
 
 ```bash
 export GEMINI_API_KEY=your_api_key_here
-node server.js
+python server.py
 ```
 
 ## 🔒 Privacy and Security
@@ -249,11 +237,21 @@ We welcome contributions! Here's how to help:
 ### Development Setup
 
 ```bash
-git clone https://github.com/xyehya/ai-peer-review-mcp
+git clone https://github.com/your-repo/ai-peer-review-mcp # Replace with your repo URL
 cd ai-peer-review-mcp
-npm install
-cp .env.example .env  # Add your API key
-npm run dev
+
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set up your environment
+cp .env.example .env
+# --> Add your GEMINI_API_KEY to the .env file
+
+echo "Development environment ready. Run with 'python server.py'"
 ```
 
 ### Ways to Contribute
