@@ -110,6 +110,7 @@ def handle_initialize(request):
         "jsonrpc": "2.0",
         "id": request.get("id"),
         "result": {
+            "protocolVersion": "2025-06-18",
             "serverInfo": {
                 "name": "ai-peer-review-py",
                 "version": "1.0.0",
